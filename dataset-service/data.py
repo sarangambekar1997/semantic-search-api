@@ -7,7 +7,7 @@ load_dotenv()
 model = SentenceTransformer(os.getenv("HF_MODEL", "all-MiniLM-L6-v2"))
 dataset = json.load(open("data.json"))
 
-# Generate embeddings (run once)
+# Generate embeddings
 print("Generating embeddings...")
 texts = [f"{r['title']}. {r['description']}. Category: {r['category']}" for r in dataset]
 embeddings = model.encode(texts)

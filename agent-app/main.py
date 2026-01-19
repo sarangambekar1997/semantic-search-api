@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import Optional, Dict, Any
+#from pydantic import BaseModel
+from typing import Dict  #Optional, Any
 import requests
 import os
-import json
+#import json
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 import re
@@ -135,7 +135,7 @@ async def agent_query(query: str):
     try:
         print(f"Processing query: {query}")
         
-        # Step 1: Parse natural language → structured filters
+        # Step 1: Parse natural language as structured filters
         filters = parse_query(query)
         print(f"Parsed filters: {filters}")
         
@@ -170,7 +170,7 @@ async def agent_query(query: str):
             "filters_used": filters,
             "result_count": len(data),
             "human_response": answer,
-            "sample_results": data[:3]  # First 3 for preview
+            "sample_results": data[:3]  
         }
         
     except requests.exceptions.RequestException as e:

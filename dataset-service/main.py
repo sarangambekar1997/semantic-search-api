@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI #, Query
 from pydantic import BaseModel
 from data import dataset, get_embedding, index
 from datetime import datetime
